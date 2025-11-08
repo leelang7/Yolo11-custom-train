@@ -75,7 +75,7 @@
 
    마찬가지로 train, test 각 각 merge를 수행한다.
 
-   <p align="center"> <img width="540" height="612" alt="image-20251109011210042" src="https://github.com/user-attachments/assets/a9bdd165-c474-4651-86a0-28c6393f4bbe" /> </p>
+   <p align="center"> <img width="1048" height="574" alt="image-20251109012931694" src="https://github.com/user-attachments/assets/4be5fcb5-b032-48b7-89fc-f768c02326fc" /> </p>
 
 ​     임의의 파일을 선택했을 때 최종 답안지 파일은 위처럼 0, 1, 2로 merge되어야 한다. merge시에 원래 좌표에 옆으로 붙는 실수가 있을 수 있으니 유의한다.
 
