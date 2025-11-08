@@ -20,7 +20,7 @@
 
     <p align="center"> <img width="724" height="266" alt="image-20251109001031863" src="https://github.com/user-attachments/assets/4701adf7-5f20-4ba0-9e8e-dfa843ba5131" /> </p>
 
-   data.yaml을 보면 훈련시 중요한 설정 정보들이 있다. train은 훈련데이터셋(이미지)의 경로, val은 검증데이터셋(이 미지)의 폴더 경로이다.
+   data.yaml을 보면 훈련시 중요한 설정 정보들이 있다. train은 훈련데이터셋(이미지)의 경로, val은 검증데이터셋(이미지)의 폴더 경로이다.
 
    nc(numbers of classes)는 클래스의 갯수이다. 클래스를 몇개로 구성할 것인가를 기술한다.
 
