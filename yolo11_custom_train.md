@@ -6,7 +6,7 @@
 
    ##### "Hard Hat Workers Dataset" - https://public.roboflow.com/object-detection/hard-hat-workers
 
-   resize-416x416-reflectEdges 7,041장 데이터셋 선택하고 format은 yolo11을 선택한다. 사용할 데이터셋은 resize되어 있다는 것에 주목하라. 해당 annotation 파일들은 전처리된 데이터로 좌표값으로 셋팅되어있다. 이미지 크기가 제각각이거나 정돈되지 않은 데이터셋의 경우 반드시 좌표체계를 사전에 확인해야 수고로움을 줄일 수 있다. 데이터셋을 통찰할 때 모든 이미지크기가 같을 것이라 단정짓지 말이야한다.
+   resize-416x416-reflectEdges 7,041장 데이터셋 선택하고 format은 yolo11을 선택한다. 사용할 데이터셋은 resize되어 있다는 것에 주목하라. 해당 annotation 파일들은 리사이징된 이미지의 좌표값으로 셋팅되어있다. 이미지 크기가 제각각이거나 정돈되지 않은 데이터셋의 경우 반드시 좌표체계를 사전에 확인해야 수고로움을 줄일 수 있다. 데이터셋을 통찰할 때 모든 이미지크기가 같을 것이라 단정짓지 말이야한다.
 
 
 
