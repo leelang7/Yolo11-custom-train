@@ -37,7 +37,7 @@
 
    그렇다고 person 데이터셋을 수집하여(person이미지와 annotation이 있는) 현재 데이터셋에 단순히 더하는 방법은 매우 위험하다. 현재 데이터셋은 헤드와 헬멧 인스턴스가 많다. 예를 들어 외부 데이터셋을 수집한 것이 person 인스턴스이고 현재 데이터셋에 그대로 더하면(단순히 데이터의 갯수만 늘려) 모델은 외부데이터셋으로 인해 헤드와 헬멧이라고 생각했던 답안지와 헤드와 헬멧은 명시하지 않고 person이라고 만들어논 답안지 때문에 왜곡이 일어나게된다. 쉽게 말해, 모델을 인간이 보고 생각하는 것처럼 만들어줘야는데 사람을 놓고 헤드와 헬멧이라고 만들어논 답안지는 person을 못보게 되고 person만 만들어논 답안지는 헤드와 헬멧을 보지못하게 만들어논 꼴이 된다. **즉, 인간의 시각정보 측면에서 헤드와 헬멧은 사람의 부분집합이므로 모든 답안지 파일에 헬멧, 헤드, 사람이 모두 라벨링되도록 만들어줘야한다.**   
 
-   이를 위해 본 task에서는 외부데이터셋의 수집 없이 person 클래스만 추출하여 답안지를 보완한다. yolo는 coco 데이터셋을 사용하므로 pre-trained된 전이학습 대상모델의 0번 클래스는 person이다. 삼국지 제갈량이 적벽대전 전에 화살을 수집하듯이 yolo11x모델을 활용하여 /train/images와 /test/images 폴더를 타겟으로 하여 person 클래스를 추론 후 추출한다.  (정확도가 핵심인 task가 아니라면 yolo11n모델을 사용하다 충분하다.)
+   이를 위해 본 task에서는 외부데이터셋의 수집 없이 person 클래스만 추출하여 답안지를 보완한다. yolo는 coco 데이터셋을 사용하므로 pre-trained된 전이학습 대상모델의 0번 클래스는 person이다. 삼국지에서 제갈량이 적벽대전 전에 화살을 모았던 것처럼 yolo11x모델을 활용하여 /train/images와 /test/images 폴더를 타겟으로 하여 person 클래스를 추론 후 추출한다. 일각에서는 이 작업을 오토라벨링이라고 칭하기도 한다.(정확도가 핵심인 task가 아니라면 yolo11n모델을 사용하다 충분하다. x모델을 사용해서 성능과 속도의 trade-off 체감을 위해 명령어는 x모델을 사용하였다.)
 
    ```
    (yolo) leelang@leelang:~/ultralytics$ yolo detect predict model=yolo11n.pt source=/home/leelang/Downloads/HardGatWorkers/test/images/ save_txt=True save=False classes=0
