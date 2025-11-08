@@ -14,11 +14,11 @@
 
    데이터셋을 다운받고 압축을 해제하면 아래와 같이 구성되어있다.
 
-   ![image-20251109000750842](/home/leelang/.config/Typora/typora-user-images/image-20251109000750842.png)
+   <img width="621" height="156" alt="image-20251109000750842" src="https://github.com/user-attachments/assets/62b9900b-fc0e-4ef9-93bb-1f2cbb1ba6cb" />
 
      train, test 폴더로 분리되어있고 각 폴더의 하위 폴더는 images와 labels로 구성되어있다. 
 
-   ![image-20251109001031863](/home/leelang/.config/Typora/typora-user-images/image-20251109001031863.png)
+   <img width="724" height="266" alt="image-20251109001031863" src="https://github.com/user-attachments/assets/4701adf7-5f20-4ba0-9e8e-dfa843ba5131" />
 
    data.yaml을 보면 훈련시 중요한 설정 정보들이 있다. train은 훈련데이터셋(이미지)의 경로, val은 검증데이터셋(이 미지)의 폴더 경로이다.
 
@@ -48,7 +48,8 @@
 
    위의 명령어는 train셋과 test셋에 대해 각각 person 클래스를 추론/추출하여 답안지 파일 .txt를 출력해 준다. 프로젝트 하위의 runs/detect/predict에 가면 아래와 같은 person(0번)이 추출된 답안지 파일을 확인할 수 있다. 임의의 파일을 선택해 내용을 확인해본다.
 
-![image-20251109005721465](/home/leelang/.config/Typora/typora-user-images/image-20251109005721465.png)
+<img width="546" height="329" alt="image-20251109005721465" src="https://github.com/user-attachments/assets/fe25d599-8b1d-4dca-a5de-f41e73e6ef0d" />
+
 
 ​       person detection 좌표를 라인별로 잘 추출한 모습이다.(정수클래스명 x y w h) yolo5부터 정규화 좌표를 사용한다.
 
@@ -62,7 +63,7 @@
 
    마찬가지로 train과 test 각 각 수행하여 person을 0번에서 2번으로 바꾼 답안지를 생성/확인한다.
 
-   ![image-20251109011210042](/home/leelang/.config/Typora/typora-user-images/image-20251109011210042.png)
+   <img width="540" height="612" alt="image-20251109011210042" src="https://github.com/user-attachments/assets/bf3e8dc7-d35b-4908-8dda-1a6618d011d7" />
 
 ​    
 
@@ -74,7 +75,7 @@
 
    마찬가지로 train, test 각 각 merge를 수행한다.
 
-   ![image-20251109012931694](/home/leelang/.config/Typora/typora-user-images/image-20251109012931694.png)
+   <img width="540" height="612" alt="image-20251109011210042" src="https://github.com/user-attachments/assets/a9bdd165-c474-4651-86a0-28c6393f4bbe" />
 
 ​     임의의 파일을 선택했을 때 최종 답안지 파일은 위처럼 0, 1, 2로 merge되어야 한다. merge시에 원래 좌표에 옆으로 붙는 실수가 있을 수 있으니 유의한다.
 
@@ -86,7 +87,7 @@
 
    아래와 같이 data.yaml 파일을 수정한다. train과 val의 images 폴더 경로만 기입하면 된다. yolo는 images 폴더 레벨에서 자동으로 labels 폴더를 찾아서 학습한다. 학습만 할 것이므로 train, val 경로만 지정한다.
 
-   ![image](/home/leelang/Downloads/image.png)
+   <img width="1043" height="621" alt="image" src="https://github.com/user-attachments/assets/bbb492f2-3ca8-4525-82cc-4223044643b8" />
 
    ```
    (yolo) leelang@leelang:~/ultralytics$ yolo train model=yolo11n.pt data='/home/leelang/Downloads/HardGatWorkers/data.yaml' epochs=10
@@ -94,7 +95,7 @@
 
    위의 명령어를 통해 원본 images와 커스텀한 최종 답안지 labels로 학습한 결과는 아래와 같다.
 
-![image-20251109013455620](/home/leelang/.config/Typora/typora-user-images/image-20251109013455620.png)
+<img width="1064" height="1062" alt="image-20251109013455620" src="https://github.com/user-attachments/assets/f4306b15-a812-409c-9f6f-29e00abc10d6" />
 
 원본 이미지와 최종 답안지로 학습을 시작하고 바로 생성되는 /runs/detect/train의 train_batch.jpg를 확인하면 0, 1, 2 person과 helmet, head모두 잘 학습하고 있음을 볼 수 있다. 반드시 bbox는 인스턴스를 잘 표기하고 있어야 한다. 좌표 변환 실수가 있거나 이미지 resize 등의 실수가 있다면 엉뚱한 곳에 bbox를 그리고 있을 수 있다. 이럴 땐 다시 한 번 꼼꼼히 체크하자. 인공지능의 근본은 데이터이며 모델/데이터 엔지니어는 데이터를 잘 이해하고 활용하는 것이 기본기 오브 기본기이다. 귀찮더라도 경로, 폴더명, 구조, 환경, 자동화, 형상관리를 소홀히 하지 말자.
 
